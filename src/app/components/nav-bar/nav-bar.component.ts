@@ -1,18 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './nav-bar.component.html'
 })
 export class NavBarComponent {
 
   @Input() cantidad: number=0;
-  @Output() cartVisibleEmmiter: EventEmitter<boolean> = new EventEmitter();
 
-  mostrar():void {
-    this.cartVisibleEmmiter.emit();
-  }
 
 }

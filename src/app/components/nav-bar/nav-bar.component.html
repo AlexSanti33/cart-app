@@ -10,7 +10,9 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a (click)="mostrar()" class="nav-link" href="#">Cart {{cantidad}}</a>
+          <a
+          [routerLink]="['/cart']"
+          class="nav-link" href="#">Cart {{cantidad}}</a>
         </li>
       </ul>
     </div>
