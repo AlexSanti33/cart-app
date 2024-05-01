@@ -1,3 +1,4 @@
+import { SharingDataService } from './../services/sharing-data.service';
 import { Product } from './../models/product';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
@@ -17,21 +18,26 @@ export class CartAppComponent implements OnInit {
   items: CartItem[] = [];
   total: number = 0;
 
-  constructor(private service: ProductService){}
+  constructor(private service: ProductService,private sharingDataService: SharingDataService){}
   ngOnInit(): void {
+    this.onDeleteCart();
     this.products = this.service.findAll();
     this.items = JSON.parse(sessionStorage.getItem('cart')!) || [];
     this.calculateTotal();
 
   }
 
-  onDeleteCart(id: number): void{
-    this.items = this.items.filter(item => item.product.id !== id);
-    if(this.items.length == 0){
-      sessionStorage.removeItem('cart');
-    }
-    this.calculateTotal();
-    this.saveSession();
+  onDeleteCart(): void{
+    this.sharingDataService.idProductEventEmitter.subscribe(id => {
+      this.items = this.items.filter(item => item.product.id !== id);
+      if(this.items.length == 0){
+        sessionStorage.removeItem('cart');
+      }
+      this.calculateTotal();
+      this.saveSession();
+
+    });
+
   }
 
   onAddCart(product: Product){

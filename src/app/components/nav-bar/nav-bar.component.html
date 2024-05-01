@@ -12,7 +12,10 @@
         <li class="nav-item">
           <a
           [routerLink]="['/cart']"
-          class="nav-link" href="#">Cart {{cantidad}}</a>
+          [state]="{items: items, total: total}"
+          class="nav-link" href="#"
+          role="button"
+          >Cart {{cantidad}}</a>
         </li>
       </ul>
     </div>

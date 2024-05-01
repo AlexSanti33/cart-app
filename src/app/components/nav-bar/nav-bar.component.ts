@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CartItem } from '../../models/cartItem';
 
 @Component({
   selector: 'nav-bar',
@@ -10,6 +11,11 @@ import { RouterModule } from '@angular/router';
 export class NavBarComponent {
 
   @Input() cantidad: number=0;
+
+  @Input() total: number=0;
+
+  @Input() items!: CartItem[];
+
 
 
 }
