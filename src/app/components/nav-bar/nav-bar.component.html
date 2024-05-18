@@ -10,16 +10,15 @@
           <a
           class="nav-link active"
           aria-current="page"
-          href="#"
           [routerLink]="['/catalog']"
           [state]="{products}"
-          >Catalogo</a>
+          >Catalog</a>
         </li>
         <li class="nav-item">
           <a
           [routerLink]="['/cart']"
           [state]="{items: items, total: total}"
-          class="nav-link" href="#"
+          class="nav-link"
           role="button"
           >Cart {{cantidad}}</a>
         </li>
