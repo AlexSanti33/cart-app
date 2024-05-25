@@ -13,8 +13,6 @@ export class NavBarComponent {
 
   @Input() cantidad: number=0;
 
-  @Input() total: number=0;
-
   @Input() items!: CartItem[];
 
   @Input() products: Product[] = [];
